@@ -1,0 +1,53 @@
+name: Android TV APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'packaging/android-tv/**'
+      - '.github/workflows/android-tv-apk.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build Android TV APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android build tools
+        run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
+
+      - name: Restore debug signing key
+        uses: actions/cache@v4
+        with:
+          path: packaging/android-tv/.signing
+          key: folia-tv-debug-keystore-v1
+
+      - name: Build APK
+        run: |
+          chmod +x packaging/android-tv/build-apk.sh
+          packaging/android-tv/build-apk.sh
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v6
+        with:
+          name: FoliaTV-apk
+          path: packaging/android-tv/build/FoliaTV.apk
+          if-no-files-found: error
+          retention-days: 30

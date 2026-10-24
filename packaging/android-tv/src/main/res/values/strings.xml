@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Folia TV</string>
+    <string name="setup_title">Connect to Folia</string>
+    <string name="setup_hint">Enter the address of your Folia Web or Docker deployment.</string>
+    <string name="server_url">Server address</string>
+    <string name="server_url_example">http://192.168.1.10:18080</string>
+    <string name="allow_insecure_tls">Allow self-signed HTTPS certificate</string>
+    <string name="allow_insecure_tls_warning">Only enable this for a server you control.</string>
+    <string name="connect">Connect</string>
+    <string name="cancel">Back</string>
+    <string name="clear_web_data">Clear website data</string>
+    <string name="invalid_server_url">Enter a valid http:// or https:// address.</string>
+    <string name="connecting">Connecting to Folia…</string>
+    <string name="load_failed">Could not load Folia. Check the server address and network.</string>
+    <string name="settings_hint">Press MENU on the remote at any time to change the server.</string>
+    <string name="exit_title">Exit Folia TV?</string>
+    <string name="exit_message">Press Back again from the home screen to exit.</string>
+    <string name="exit">Exit</string>
+    <string name="stay">Stay</string>
+    <string name="web_data_cleared">Website data cleared.</string>
+    <string name="ssl_blocked">The server certificate is not trusted. Use HTTPS with a trusted certificate, or explicitly allow a self-signed certificate for this server.</string>
+</resources>

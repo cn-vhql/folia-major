@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Folia TV</string>
+    <string name="setup_title">连接 Folia</string>
+    <string name="setup_hint">输入你部署的 Folia Web 或 Docker 服务地址。</string>
+    <string name="server_url">服务器地址</string>
+    <string name="server_url_example">http://192.168.1.10:18080</string>
+    <string name="allow_insecure_tls">允许自签名 HTTPS 证书</string>
+    <string name="allow_insecure_tls_warning">仅对你控制的服务器启用。</string>
+    <string name="connect">连接</string>
+    <string name="cancel">返回</string>
+    <string name="clear_web_data">清除网页数据</string>
+    <string name="invalid_server_url">请输入有效的 http:// 或 https:// 地址。</string>
+    <string name="connecting">正在连接 Folia…</string>
+    <string name="load_failed">无法加载 Folia，请检查服务器地址和网络。</string>
+    <string name="settings_hint">随时按遥控器 MENU 键修改服务器。</string>
+    <string name="exit_title">退出 Folia TV？</string>
+    <string name="exit_message">在首页再次按返回键退出应用。</string>
+    <string name="exit">退出</string>
+    <string name="stay">留在应用</string>
+    <string name="web_data_cleared">网页数据已清除。</string>
+    <string name="ssl_blocked">服务器证书不受信任。请使用受信任的 HTTPS 证书，或明确允许该服务器的自签名证书。</string>
+</resources>

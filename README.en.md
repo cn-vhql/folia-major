@@ -148,7 +148,7 @@ Self-hosters can use the [Docker Compose full-stack deployment](deploy/docker/RE
 - **Windows / macOS / Linux**: Download the latest installers from the [Releases page](https://github.com/chthollyphile/folia-major/releases/latest).
 - **Arch Linux**: Install [folia-major-bin](https://aur.archlinux.org/packages/folia-major-bin) from the AUR.
 - **Flatpak**: A community-maintained third-party Flatpak is available on [Flatpark](https://flatpark.org/apps/top.izuna.foliamajor/).
-- **Android**: Third-party community ports are listed under [Mobile](#mobile) below.
+- **Android / Android TV**: Third-party mobile ports are listed under [Mobile](#mobile) below; this project also includes an [Android TV APK](packaging/android-tv/README.md).
 
 > [!IMPORTANT]
 > If GitHub Releases is slow from mainland China, download from [Quark](https://pan.quark.cn/s/6e4c6fa3bc6f) or [Baidu](https://pan.baidu.com/s/1f0x3g-8PMcNCO-TJ5z1rPw?pwd=flia) instead. These links host stable installers for Windows and Apple silicon only.
@@ -160,6 +160,7 @@ For Linux packages, the Wayland / Hyprland remote control window, and other desk
 | Option | Details |
 | --- | --- |
 | **PWA (recommended)** | Deploy the web or self-hosted version, then add it to your home screen from Chrome for Android or iOS Safari to use it as a PWA. |
+| **Android TV APK (included)** | A native WebView shell for TV boxes with D-pad spatial navigation, media-key controls, and server configuration. See the [Android TV documentation](packaging/android-tv/README.md) to build and install it. |
 | **Community ports (Android)** | [maimai993/folia-sonnet](https://github.com/maimai993/folia-sonnet) · [whycfawa/folia-android](https://github.com/whycfawa/folia-android) |
 | **Build it yourself (Android)** | If you are comfortable with the tooling, package the web version as an installable APK with Capacitor. See the example repository [chthollyphile/folia-sonnet](https://github.com/chthollyphile/folia-sonnet). |
 

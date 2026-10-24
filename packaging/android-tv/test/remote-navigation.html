@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Folia TV remote navigation test</title>
+    <style>
+        body { margin: 0; width: 1280px; height: 720px; background: #111; }
+        button { position: absolute; width: 120px; height: 60px; }
+        #left { left: 40px; top: 80px; }
+        #right { left: 240px; top: 80px; }
+        #bottom { left: 240px; top: 220px; }
+        #modal { left: 600px; top: 400px; }
+        #input { left: 40px; top: 400px; width: 240px; }
+        #result { position: absolute; left: 800px; top: 20px; color: white; }
+    </style>
+</head>
+<body>
+    <button id="left">Left</button>
+    <button id="right">Right</button>
+    <button id="bottom">Bottom</button>
+    <button id="input" contenteditable="true">Input</button>
+    <section id="dialog" role="dialog" style="position:absolute;inset:0;background:#222;display:none">
+        <button id="modal">Modal</button>
+    </section>
+    <pre id="result">RUNNING</pre>
+
+    <script>
+        window.inputStates = [];
+        window.FoliaTvBridge = {
+            setInputActive(value) { window.inputStates.push(value); },
+        };
+    </script>
+    <script src="../src/main/assets/tv_bridge.js"></script>
+    <script>
+        const checks = [];
+        const check = (condition, message) => {
+            if (!condition) checks.push(message);
+        };
+
+        window.FoliaTvRemote.focusInitial();
+        check(document.activeElement.id === 'left', 'initial focus');
+
+        window.FoliaTvRemote.dispatchRemoteKey('ArrowRight', 0);
+        check(document.activeElement.id === 'right', 'right navigation');
+
+        window.FoliaTvRemote.dispatchRemoteKey('ArrowDown', 0);
+        check(document.activeElement.id === 'bottom', 'down navigation');
+
+        document.getElementById('right').addEventListener('keydown', event => {
+            if (event.key === 'ArrowRight') event.preventDefault();
+        });
+        document.getElementById('right').focus();
+        window.FoliaTvRemote.dispatchRemoteKey('ArrowRight', 0);
+        check(document.activeElement.id === 'right', 'handled page key must not move focus');
+
+        document.getElementById('input').focus();
+        check(window.inputStates[window.inputStates.length - 1] === true, 'input state');
+
+        const dialog = document.getElementById('dialog');
+        dialog.style.display = 'block';
+        window.FoliaTvRemote.focusInitial();
+        check(document.activeElement.id === 'modal', 'modal focus scope');
+        dialog.style.display = 'none';
+
+        document.getElementById('result').textContent = checks.length
+            ? 'FAIL ' + checks.join(', ')
+            : 'PASS';
+    </script>
+</body>
+</html>

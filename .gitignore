@@ -45,6 +45,8 @@ test-results/
 test/manual/lyric-output/*
 test/manual/lyric-audit-output/*    
 deploy/docker/.env
+packaging/android-tv/build/
+packaging/android-tv/.signing/
 deploy/docker/data/
 .agents/
 skills-lock.json
